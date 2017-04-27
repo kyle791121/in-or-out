@@ -119,6 +119,7 @@ module.exports = (app) => {
       }).on('end', function() {
         var body = Buffer.concat(bodyChunks);
         console.log('BODY: ' + body);
+        msg.say(body);
         // ...and/or process the entire body here.
       })
     });
