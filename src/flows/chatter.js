@@ -82,9 +82,9 @@ module.exports = (app) => {
   })
 
   slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
-    if (msg.type !== 'action') {
-      msg.say('you must choose a button!').route('handleHi', state)
-    }
+    // if (msg.type !== 'action') {
+    //   msg.say('you must choose a button!').route('handleHi', state)
+    // }
     msg.say('how are you').route('handleHi',{ what: match1 })
   })
 
