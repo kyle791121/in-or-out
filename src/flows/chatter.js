@@ -44,7 +44,7 @@ module.exports = (app) => {
       attachments: [
         {
           text: 'Choose a game to play',
-          fallback: main_msg,
+          fallback: 'fallback',
           callback_id: 'wopr_game',
           color: '#3AA3E3',
           attachment_type: 'default',
