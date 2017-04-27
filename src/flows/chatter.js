@@ -77,7 +77,7 @@ module.exports = (app) => {
           ]
         }
       ]
-    }).route('handleHi', {what: match1})
+    }).route('handlePlay')
   })
 
   slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
