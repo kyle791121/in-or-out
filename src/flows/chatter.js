@@ -97,7 +97,7 @@ module.exports = (app) => {
     }
   })
 
-  slapp.action('wopr_game','answer',(msg,val) => {
+  slapp.action('wopr_game','game',(msg,val) => {
     msg.respond('you chose ' + val)
   })
 
