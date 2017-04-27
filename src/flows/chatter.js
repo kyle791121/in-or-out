@@ -38,6 +38,48 @@ module.exports = (app) => {
   //   }
   // })
 
+  slapp.message('play',['direct_message'],(msg, text, match1) => {
+    msg.say({
+      text: 'Would you like to play a game?',
+      attachments: [
+        {
+          text: 'Choose a game to play',
+          fallback: main_msg,
+          callback_id: 'wopr_game',
+          color: '#3AA3E3',
+          attachment_type: 'default',
+          actions: [
+              {
+                  name: 'game',
+                  text: 'Chess',
+                  type: 'button',
+                  value: 'chess'
+              },
+              {
+                  name: 'game',
+                  text: 'Falken\'s Maze',
+                  type: 'button',
+                  value: 'maze'
+              },
+              {
+                  name: 'game',
+                  text: 'Thermonuclear War',
+                  style: 'danger',
+                  type: 'button',
+                  value: 'war',
+                  confirm: {
+                      title: 'Are you sure?',
+                      text: 'Wouldn\'t you prefer a good game of chess?',
+                      ok_text: 'Yes',
+                      dismiss_text: 'No'
+                  }
+              }
+          ]
+        }
+      ]
+    })
+  })
+
   slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
     msg.say('how are you').route('handleHi',{ what: match1 })
     console.log(msg);
