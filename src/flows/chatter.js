@@ -77,7 +77,8 @@ module.exports = (app) => {
           ]
         }
       ]
-    }).route('handlePlay')
+    })
+    // }).route('handlePlay')
   })
 
   slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
