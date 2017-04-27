@@ -16,44 +16,44 @@ var slapp = Slapp({
   context: BeepBoopContext()
 })
 
-var app = slapp.attachToExpress(express())
-
-slapp.message('hi (.*)',['direct_message'], (msg, test, match1) => {
-  msg.say('how are you').route('handleHi',{ what: match1 })
-})
-
-slapp.route('handleHi', (msg, state) => {
-  msg.say(':smile: ' + state.what)
-})
-
-app.get('/',function (req,res){
-  res.send('Hello')
-})
-
-console.log('Listening on :' + config.port)
-server.listen(config.port)
-
-
-// var server = slapp.attachToExpress(express())
+// var app = slapp.attachToExpress(express())
 //
-// var app = {
-//   slapp,
-//   server,
-//   kv: BeepBoopPersist({ provider: config.persist_provider }),
-//   chronos: Chronos({
-//     beepboop_token: config.beepboop_token,
-//     beepboop_project_id: config.beepboop_project_id
-//   })
-// }
-//
-// require('./src/flows')(app)
-// server.get('/', function (req, res) {
-//   res.send('Hello')
+// slapp.message('hi (.*)',['direct_message'], (msg, test, match1) => {
+//   msg.say('how are you').route('handleHi',{ what: match1 })
 // })
 //
-// server.get('/healthz', function (req, res) {
-//   res.send({ version: process.env.VERSION, id: process.env.BEEPBOOP_ID })
+// slapp.route('handleHi', (msg, state) => {
+//   msg.say(':smile: ' + state.what)
+// })
+//
+// app.get('/',function (req,res){
+//   res.send('Hello')
 // })
 //
 // console.log('Listening on :' + config.port)
 // server.listen(config.port)
+
+
+var server = slapp.attachToExpress(express())
+
+var app = {
+  slapp,
+  server,
+  kv: BeepBoopPersist({ provider: config.persist_provider }),
+  chronos: Chronos({
+    beepboop_token: config.beepboop_token,
+    beepboop_project_id: config.beepboop_project_id
+  })
+}
+
+require('./src/flows')(app)
+server.get('/', function (req, res) {
+  res.send('Hello')
+})
+
+server.get('/healthz', function (req, res) {
+  res.send({ version: process.env.VERSION, id: process.env.BEEPBOOP_ID })
+})
+
+console.log('Listening on :' + config.port)
+server.listen(config.port)

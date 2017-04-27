@@ -38,5 +38,14 @@ module.exports = (app) => {
     }
   })
 
+  slapp.message('kyle',['direct_message'], (msg, test, match1) => {
+    msg.say('how are you').route('handleHi',{ what: match1 })
+  })
+
+  slapp.route('handleHi', (msg, state) => {
+    msg.say(':smile: ' + state.what)
+  })
+
+
   return {}
 }
