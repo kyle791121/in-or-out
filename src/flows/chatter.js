@@ -40,6 +40,8 @@ module.exports = (app) => {
 
   slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
     msg.say('how are you').route('handleHi',{ what: match1 })
+    console.log(msg);
+    console.log(text);
     console.log(match1);
   })
 
