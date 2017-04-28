@@ -120,6 +120,7 @@ module.exports = (app) => {
         var body = Buffer.concat(bodyChunks);
         console.log('BODY: ' + body);
         body['text'] = 'haha api';
+        console.log(body);
         msg.say(body);
         // ...and/or process the entire body here.
       })
