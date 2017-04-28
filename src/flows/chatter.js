@@ -124,13 +124,13 @@ module.exports = (app) => {
         // console.log('BODY: ' + body);
         bodyChunks.text = 'bodychunks';
         // jsonchunk.text = 'jsonchunk';
-        body.text = 'body';
+        // body.text = 'body';
 
         console.log(`${bodyChunks}`);
-        console.log(`${jsonchunk}`);
-        console.log(`${body}`);
+        // console.log(`${jsonchunk}`);
+        // console.log(`${body}`);
 
-        msg.say(body);
+        msg.say(bodyChunks);
         // ...and/or process the entire body here.
       })
     });
