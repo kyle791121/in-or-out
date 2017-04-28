@@ -117,14 +117,15 @@ module.exports = (app) => {
         // You can process streamed parts here...
         bodyChunks.push(chunk);
       }).on('end', function() {
-        console.log(`${bodyChunks}`);
         var body = Buffer.concat(bodyChunks);
-
+        var jsonchunk = JSON.parse(bodyChunks);
         console.log('BODY: ' + body);
+        bodyChunks.text = 'bodychunks';
+        jsonchunk.text = 'jsonchunk';
+        body.text = 'body';
 
-        body.text = 'add text';
-        body['text'] = '123123';
-
+        console.log(`${bodyChunks}`);
+        console.log(`${jsonchunk}`);
         console.log(`${body}`);
 
         msg.say(body);
