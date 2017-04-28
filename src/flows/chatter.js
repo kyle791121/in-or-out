@@ -119,8 +119,8 @@ module.exports = (app) => {
       }).on('end', function() {
         var body = Buffer.concat(bodyChunks);
         console.log('BODY: ' + body);
-        body.text = 'add test'
-        console.log(body);
+        body['text'] = 'haha api';
+        console.log('BODY: ' + body);
         msg.say(body);
         // ...and/or process the entire body here.
       })
