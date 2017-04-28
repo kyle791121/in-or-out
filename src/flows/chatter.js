@@ -121,7 +121,7 @@ module.exports = (app) => {
 
         console.log('BODY: ' + body);
         body.text = 'add text';
-        console.log('${body}');
+        console.log(`${body}`);
 
         msg.say(body);
         // ...and/or process the entire body here.
