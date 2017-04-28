@@ -113,16 +113,17 @@ module.exports = (app) => {
 
       console.log(`${response}`);
       // Buffer the body entirely for processing as a whole.
-      var bodyChunks = [];
+      var bodyChunks;
       response.on('data', function(chunk) {
         // You can process streamed parts here...
-        bodyChunks.push(chunk);
+        // bodyChunks.push(chunk);
+        bodyChunks = chunk;
       }).on('end', function() {
-        var body = Buffer.concat(bodyChunks);
-        var jsonchunk = JSON.parse(bodyChunks);
-        console.log('BODY: ' + body);
+        // var body = Buffer.concat(bodyChunks);
+        // var jsonchunk = JSON.parse(bodyChunks);
+        // console.log('BODY: ' + body);
         bodyChunks.text = 'bodychunks';
-        jsonchunk.text = 'jsonchunk';
+        // jsonchunk.text = 'jsonchunk';
         body.text = 'body';
 
         console.log(`${bodyChunks}`);
