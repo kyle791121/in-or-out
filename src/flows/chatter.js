@@ -82,7 +82,7 @@ module.exports = (app) => {
     msg.say(myMsg);
 
     // }).route('handlePlay')
-  })
+  }).route('handlePlay')
 
   slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
     // if (msg.type !== 'action') {
@@ -100,6 +100,13 @@ module.exports = (app) => {
       msg.say('you must choose a button!').route('handlePlay')
     }
   })
+
+
+
+
+
+
+
 
   slapp.action('wopr_game','game',(msg,val) => {
     // msg.respond('you chose ' + val)
