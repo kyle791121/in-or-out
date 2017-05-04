@@ -53,7 +53,7 @@ module.exports = (app) => {
   })
 
   slapp.message('play',(msg, text) => {
-    console.log(text);
+    console.log(msg.value);
     callDavid(msg,text);
   })
 
