@@ -31,14 +31,8 @@ module.exports = (app) => {
     msg.say(['Cheers :beers:', 'Bye', 'Goodbye', 'Adios'])
   })
 
-  // slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
-  //   // respond only 40% of the time
-  //   if (Math.random() < 0.4) {
-  //     msg.say([':wave:', ':pray:', ':raised_hands:'])
-  //   }
-  // })
 
-  // slapp.message('()', ['direct_mention', 'direct_message'], (msg) => {
+  // slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
   //   // respond only 40% of the time
   //   if (Math.random() < 0.4) {
   //     msg.say([':wave:', ':pray:', ':raised_hands:'])
@@ -55,6 +49,10 @@ module.exports = (app) => {
   slapp.message('play',(msg, text) => {
     console.log(msg.value);
     callDavid(msg,text);
+  })
+
+  slapp.message('1',(msg, text) => {
+    bookNow('1',msg,text);
   })
 
   // slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
@@ -77,6 +75,31 @@ module.exports = (app) => {
   //   }
   // })
 
+  function bookNow(index,msg,text){
+    var http = require('http');
+    var options = {
+      host: 'mbigtest.ddns.net',
+      path: '/bot/index?cmd=' + index
+    };
+
+    var req = http.get(options, function(response) {
+      let bodyChunks;
+
+      response.on('data', function(chunk) {
+
+        bodyChunks = chunk;
+
+      }).on('end', function() {
+
+        msg.respond(JSON.parse(bodyChunks));
+
+      })
+    });
+
+    req.on('error', function(e) {
+      console.log('ERROR: ' + e.message);
+    });
+  }
 
 
 
