@@ -78,7 +78,8 @@ module.exports = (app) => {
         }
       ]
     };
-    msg.say(myMsg);
+    console.log(`${myMsg}`);
+    console.log();
     // }).route('handlePlay')
   })
 
