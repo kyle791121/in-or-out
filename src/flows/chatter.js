@@ -57,6 +57,42 @@ module.exports = (app) => {
               },
               {
                   name: 'game',
+                  text: 'asdasd',
+                  type: 'button',
+                  value: 'chasdasdess'
+              },
+              {
+                  name: 'game',
+                  text: 'zxczxc',
+                  type: 'button',
+                  value: 'zxczxc'
+              },
+              {
+                  name: 'game',
+                  text: 'qweqwe',
+                  type: 'button',
+                  value: 'qweqwe'
+              },
+              {
+                  name: 'game',
+                  text: 'werwer',
+                  type: 'button',
+                  value: 'werwer'
+              },
+              {
+                  name: 'game',
+                  text: 'ertert',
+                  type: 'button',
+                  value: 'ertert'
+              },
+              {
+                  name: 'game',
+                  text: 'rtyrty',
+                  type: 'button',
+                  value: 'rtyrty'
+              },
+              {
+                  name: 'game',
                   text: 'Falken\'s Maze',
                   type: 'button',
                   value: 'maze'
