@@ -99,7 +99,7 @@ module.exports = (app) => {
   })
 
   slapp.action('wopr_game','game',(msg,val) => {
-    msg.respond('you chose ' + val)
+    // msg.respond('you chose ' + val)
 
     var http = require('http');
     var options = {
