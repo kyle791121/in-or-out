@@ -134,26 +134,6 @@ module.exports = (app) => {
         // console.log(`${body}`);
 
         msg.say(bodyChunks);
-        msg.say({
-          text: 'Would you like to play a game?',
-          attachments: [
-            {
-              text: 'Choose a game to play',
-              fallback: 'fallback',
-              callback_id: 'wopr_gameasad',
-              color: '#3AA3E3',
-              attachment_type: 'default',
-              actions: [
-                  {
-                      name: 'games',
-                      text: 'Chess',
-                      type: 'button',
-                      value: 'chess'
-                  }
-              ]
-            }
-          ]
-        });
         // ...and/or process the entire body here.
       })
     });
