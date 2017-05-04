@@ -31,7 +31,7 @@ module.exports = (app) => {
   //   msg.say(['Cheers :beers:', 'Bye', 'Goodbye', 'Adios'])
   // })
 
-  slapp.message('[^1|2{1}$]', (msg) => {
+  slapp.message(RegExp('[^1|2{1}$]'), (msg) => {
     var http = require('http');
     var options = {
       host: 'mbigtest.ddns.net',
