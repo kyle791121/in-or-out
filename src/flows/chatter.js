@@ -31,12 +31,12 @@ module.exports = (app) => {
     msg.say(['Cheers :beers:', 'Bye', 'Goodbye', 'Adios'])
   })
 
-  slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
-    // respond only 40% of the time
-    if (Math.random() < 0.4) {
-      msg.say([':wave:', ':pray:', ':raised_hands:'])
-    }
-  })
+  // slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
+  //   // respond only 40% of the time
+  //   if (Math.random() < 0.4) {
+  //     msg.say([':wave:', ':pray:', ':raised_hands:'])
+  //   }
+  // })
 
   // slapp.message('()', ['direct_mention', 'direct_message'], (msg) => {
   //   // respond only 40% of the time
@@ -47,48 +47,7 @@ module.exports = (app) => {
 
 
   slapp.message('play',(msg, text) => {
-    let myMsg = {
-      text: 'Would you like to play a game?',
-      attachments: [
-        {
-          text: 'Choose a game to play',
-          fallback: 'fallback',
-          callback_id: 'wopr_game',
-          color: '#3AA3E3',
-          attachment_type: 'default',
-          actions: [
-              {
-                  name: 'game',
-                  text: 'Chess',
-                  type: 'button',
-                  value: 'chess'
-              },
-              {
-                  name: 'game',
-                  text: 'Falken\'s Maze',
-                  type: 'button',
-                  value: 'maze'
-              },
-              {
-                  name: 'game',
-                  text: 'Thermonuclear War',
-                  style: 'danger',
-                  type: 'button',
-                  value: 'war',
-                  confirm: {
-                      title: 'Are you sure?',
-                      text: 'Wouldn\'t you prefer a good game of chess?',
-                      ok_text: 'Yes',
-                      dismiss_text: 'No'
-                  }
-              }
-          ]
-        }
-      ]
-    };
-
-    msg.say(myMsg)//.route('handlePlay');
-
+    callDavid(msg,text);
   })
 
   // slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
@@ -115,8 +74,49 @@ module.exports = (app) => {
 
 
 
+  function callDavid(msg, text) {
+      let myMsg = {
+        text: 'Would you like to play a game?',
+        attachments: [
+          {
+            text: 'Choose a game to play',
+            fallback: 'fallback',
+            callback_id: 'wopr_game',
+            color: '#3AA3E3',
+            attachment_type: 'default',
+            actions: [
+                {
+                    name: 'game',
+                    text: 'Chess',
+                    type: 'button',
+                    value: 'chess'
+                },
+                {
+                    name: 'game',
+                    text: 'Falken\'s Maze',
+                    type: 'button',
+                    value: 'maze'
+                },
+                {
+                    name: 'game',
+                    text: 'Thermonuclear War',
+                    style: 'danger',
+                    type: 'button',
+                    value: 'war',
+                    confirm: {
+                        title: 'Are you sure?',
+                        text: 'Wouldn\'t you prefer a good game of chess?',
+                        ok_text: 'Yes',
+                        dismiss_text: 'No'
+                    }
+                }
+            ]
+          }
+        ]
+      };
 
-
+      msg.say(myMsg)//.route('handlePlay');
+  }
 
   slapp.action('wopr_game','game',(msg,val) => {
     // msg.respond('you chose ' + val)
