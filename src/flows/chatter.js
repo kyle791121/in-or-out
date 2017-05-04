@@ -140,7 +140,7 @@ module.exports = (app) => {
             {
               text: 'Choose a game to play',
               fallback: 'fallback',
-              callback_id: 'wopr_game',
+              callback_id: 'wopr_gameasad',
               color: '#3AA3E3',
               attachment_type: 'default',
               actions: [
