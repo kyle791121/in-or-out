@@ -31,12 +31,12 @@ module.exports = (app) => {
     msg.say(['Cheers :beers:', 'Bye', 'Goodbye', 'Adios'])
   })
 
-  slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
-    // respond only 40% of the time
-    if (Math.random() < 0.4) {
-      msg.say([':wave:', ':pray:', ':raised_hands:'])
-    }
-  })
+  // slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
+  //   // respond only 40% of the time
+  //   if (Math.random() < 0.4) {
+  //     msg.say([':wave:', ':pray:', ':raised_hands:'])
+  //   }
+  // })
 
   slapp.message('play',(msg, text, match1) => {
     let myMsg = {
@@ -54,42 +54,6 @@ module.exports = (app) => {
                   text: 'Chess',
                   type: 'button',
                   value: 'chess'
-              },
-              {
-                  name: 'game',
-                  text: 'asdasd',
-                  type: 'button',
-                  value: 'chasdasdess'
-              },
-              {
-                  name: 'game',
-                  text: 'zxczxc',
-                  type: 'button',
-                  value: 'zxczxc'
-              },
-              {
-                  name: 'game',
-                  text: 'qweqwe',
-                  type: 'button',
-                  value: 'qweqwe'
-              },
-              {
-                  name: 'game',
-                  text: 'werwer',
-                  type: 'button',
-                  value: 'werwer'
-              },
-              {
-                  name: 'game',
-                  text: 'ertert',
-                  type: 'button',
-                  value: 'ertert'
-              },
-              {
-                  name: 'game',
-                  text: 'rtyrty',
-                  type: 'button',
-                  value: 'rtyrty'
               },
               {
                   name: 'game',
