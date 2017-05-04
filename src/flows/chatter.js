@@ -78,8 +78,9 @@ module.exports = (app) => {
         }
       ]
     };
-    console.log(`${myMsg}`);
-    console.log();
+    console.log(`${myMsg.attachments}`);
+    msg.say(myMsg);
+
     // }).route('handlePlay')
   })
 
