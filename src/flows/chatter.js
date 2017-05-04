@@ -91,7 +91,7 @@ module.exports = (app) => {
 
       }).on('end', function() {
 
-        msg.respond(JSON.parse(bodyChunks));
+        msg.say(JSON.parse(bodyChunks));
 
       })
     });
