@@ -135,12 +135,12 @@ module.exports = (app) => {
 
         msg.say(bodyChunks);
         msg.say({
-          text: 'choose a meeting room',
+          text: 'Would you like to play a game?',
           attachments: [
             {
               text: 'Choose a game to play',
               fallback: 'fallback',
-              callback_id: 'wopr_gasdasdame',
+              callback_id: 'wopr_game',
               color: '#3AA3E3',
               attachment_type: 'default',
               actions: [
@@ -151,7 +151,9 @@ module.exports = (app) => {
                       value: 'chess'
                   }
               ]
-            })
+            }
+          ]
+        });
         // ...and/or process the entire body here.
       })
     });
