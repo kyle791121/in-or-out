@@ -32,7 +32,29 @@ module.exports = (app) => {
   // })
 
   slapp.message('[^1|2{1}$]', (msg) => {
-    msg.say(['Cheers :beers:', 'Bye', 'Goodbye', 'Adios'])
+    var http = require('http');
+    var options = {
+      host: 'mbigtest.ddns.net',
+      path: '/bot/index?cmd=' + msg.text
+    };
+
+    var req = http.get(options, function(response) {
+      let bodyChunks;
+
+      response.on('data', function(chunk) {
+
+        bodyChunks = chunk;
+
+      }).on('end', function() {
+
+        msg.say(JSON.parse(bodyChunks));
+
+      })
+    });
+
+    req.on('error', function(e) {
+      console.log('ERROR: ' + e.message);
+    });
   })
 
   // slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
