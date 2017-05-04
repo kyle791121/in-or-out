@@ -39,7 +39,7 @@ module.exports = (app) => {
   // })
 
   slapp.message('play',(msg, text, match1) => {
-    msg.say({
+    var myMsg = {
       text: 'Would you like to play a game?',
       attachments: [
         {
@@ -77,7 +77,8 @@ module.exports = (app) => {
           ]
         }
       ]
-    })
+    };
+    msg.say(myMsg);
     // }).route('handlePlay')
   })
 
