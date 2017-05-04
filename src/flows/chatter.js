@@ -148,6 +148,35 @@ module.exports = (app) => {
       msg.say(myMsg)//.route('handlePlay');
   }
 
+  slapp.action('1','room',(msg,val) => {
+    // msg.respond('you chose ' + val)
+    console.log(msg);
+    console.log(val);
+    var http = require('http');
+    var options = {
+      host: 'mbigtest.ddns.net',
+      path: '/bot/index?cmd=1&text=' + val
+    };
+
+    var req = http.get(options, function(response) {
+      let bodyChunks;
+
+      response.on('data', function(chunk) {
+
+        bodyChunks = chunk;
+
+      }).on('end', function() {
+
+        msg.respond(JSON.parse(bodyChunks));
+
+      })
+    });
+
+    req.on('error', function(e) {
+      console.log('ERROR: ' + e.message);
+    });
+  })
+
   slapp.action('wopr_game','game',(msg,val) => {
     // msg.respond('you chose ' + val)
     console.log(msg);
