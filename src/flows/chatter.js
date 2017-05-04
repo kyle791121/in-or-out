@@ -145,7 +145,7 @@ module.exports = (app) => {
               attachment_type: 'default',
               actions: [
                   {
-                      name: 'game',
+                      name: 'games',
                       text: 'Chess',
                       type: 'button',
                       value: 'chess'
