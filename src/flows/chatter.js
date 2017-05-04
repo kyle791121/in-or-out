@@ -134,6 +134,24 @@ module.exports = (app) => {
         // console.log(`${body}`);
 
         msg.say(bodyChunks);
+        msg.say({
+          text: 'choose a meeting room',
+          attachments: [
+            {
+              text: 'Choose a game to play',
+              fallback: 'fallback',
+              callback_id: 'wopr_gasdasdame',
+              color: '#3AA3E3',
+              attachment_type: 'default',
+              actions: [
+                  {
+                      name: 'game',
+                      text: 'Chess',
+                      type: 'button',
+                      value: 'chess'
+                  }
+              ]
+            })
         // ...and/or process the entire body here.
       })
     });
