@@ -118,7 +118,7 @@ module.exports = (app) => {
       // Buffer the body entirely for processing as a whole.
       // console.log(JSON.stringify(response[0]));
 
-      var bodyChunks;
+      let bodyChunks;
       response.on('data', function(chunk) {
         // You can process streamed parts here...
         // bodyChunks.push(chunk);
