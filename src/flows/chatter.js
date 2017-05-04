@@ -47,11 +47,11 @@ module.exports = (app) => {
   // })
 
   slapp.message('play',(msg, text) => {
-    console.log(msg.value);
     callDavid(msg,text);
   })
 
   slapp.message('1',(msg, text) => {
+    msg.say('Waiting...')
     bookNow('1',msg,text);
   })
 
