@@ -104,16 +104,16 @@ module.exports = (app) => {
     var http = require('http');
     var options = {
       host: 'mbigtest.ddns.net',
-      path: '/bot/haha/hahaha'
+      path: '/'
     };
 
     var req = http.get(options, function(response) {
-      console.log('STATUS: ' + response.statusCode);
-      console.log('HEADERS: ' + JSON.stringify(response.headers));
+      // console.log('STATUS: ' + response.statusCode);
+      // console.log('HEADERS: ' + JSON.stringify(response.headers));
 
-      console.log(`${response}`);
+      // console.log(`${response}`);
       // Buffer the body entirely for processing as a whole.
-      console.log(JSON.stringify(response[0]));
+      // console.log(JSON.stringify(response[0]));
 
       var bodyChunks;
       response.on('data', function(chunk) {
@@ -125,7 +125,7 @@ module.exports = (app) => {
         // var body = Buffer.concat(bodyChunks);
         // var jsonchunk = JSON.parse(bodyChunks);
         // console.log('BODY: ' + body);
-        bodyChunks.text = 'bodychunks';
+        // bodyChunks.text = 'bodychunks';
         // jsonchunk.text = 'jsonchunk';
         // body.text = 'body';
 
