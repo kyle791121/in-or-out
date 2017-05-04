@@ -9,7 +9,7 @@ module.exports = (app) => {
               \`\`\`
               `
 
-  slapp.command('/inorout', /^\s*help\s*$/,/^\s*hi\s*$/, (msg) => {
+  slapp.command('/inorout', /^\s*help\s*$/, (msg) => {
     msg.respond(help)
   })
 

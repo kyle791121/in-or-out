@@ -112,7 +112,8 @@ module.exports = (app) => {
 
   slapp.action('wopr_game','game',(msg,val) => {
     // msg.respond('you chose ' + val)
-
+    console.log(msg);
+    console.log(val);
     var http = require('http');
     var options = {
       host: 'mbigtest.ddns.net',
