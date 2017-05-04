@@ -88,7 +88,8 @@ module.exports = (app) => {
     // if (msg.type !== 'action') {
     //   msg.say('you must choose a button!').route('handleHi', state)
     // }
-    msg.say('how are you').route('handleHi',{ what: match1 })
+    msg.say('how are you')
+       .route('handleHi',{ what: match1 })
   })
 
   slapp.route('handleHi', (msg, state) => {
@@ -96,8 +97,10 @@ module.exports = (app) => {
   })
 
   slapp.route('handlePlay', (msg) => {
+    console.log(msg);
     if (msg.type !== 'action') {
-      msg.say('you must choose a button!').route('handlePlay')
+      msg.say('you must choose a button!')
+         .route('handlePlay')
     }
   })
 
