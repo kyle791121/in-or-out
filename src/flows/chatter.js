@@ -45,8 +45,15 @@ module.exports = (app) => {
   //   }
   // })
 
+  slapp.message('.*', (msg) => {
+    // respond only 40% of the time
+    // if (Math.random() < 0.4) {
+      msg.say([':wave:', ':pray:', ':raised_hands:'])
+    // }
+  })
 
   slapp.message('play',(msg, text) => {
+    console.log(text);
     callDavid(msg,text);
   })
 
