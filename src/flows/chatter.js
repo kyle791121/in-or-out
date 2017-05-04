@@ -126,7 +126,8 @@ module.exports = (app) => {
         bodyChunks = chunk;
       }).on('end', function() {
         console.log(`${bodyChunks}`);
-        msg.say(bodyChunks.toString());
+
+        msg.say(JSON.parse(bodyChunks));
         // var body = Buffer.concat(bodyChunks);
         // var jsonchunk = JSON.parse(bodyChunks);
         // console.log('BODY: ' + body);
