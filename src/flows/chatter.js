@@ -51,8 +51,13 @@ module.exports = (app) => {
   })
 
   slapp.message('1',(msg, text) => {
-    msg.say('Waiting...')
+    msg.say('查詢空會議室中...(30min)')
     bookNow('1',msg,text);
+  })
+
+  slapp.message('2',(msg, text) => {
+    msg.say('查詢空會議室中...(1hr)')
+    bookNow('2',msg,text);
   })
 
   // slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
@@ -176,6 +181,38 @@ module.exports = (app) => {
       console.log('ERROR: ' + e.message);
     });
   })
+
+
+  slapp.action('2','room',(msg,val) => {
+    // msg.respond('you chose ' + val)
+    console.log(msg);
+    console.log(val);
+    var http = require('http');
+    var options = {
+      host: 'mbigtest.ddns.net',
+      path: '/bot/index?cmd=2&text=' + val
+    };
+
+    var req = http.get(options, function(response) {
+      let bodyChunks;
+
+      response.on('data', function(chunk) {
+
+        bodyChunks = chunk;
+
+      }).on('end', function() {
+
+        msg.respond(JSON.parse(bodyChunks));
+
+      })
+    });
+
+    req.on('error', function(e) {
+      console.log('ERROR: ' + e.message);
+    });
+  })
+
+
 
   slapp.action('wopr_game','game',(msg,val) => {
     // msg.respond('you chose ' + val)
