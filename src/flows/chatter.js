@@ -119,6 +119,7 @@ module.exports = (app) => {
       response.on('data', function(chunk) {
         // You can process streamed parts here...
         // bodyChunks.push(chunk);
+        console.log(`${chunk}`);
         msg.say(chunk);
         // bodyChunks = chunk;
       }).on('end', function() {
