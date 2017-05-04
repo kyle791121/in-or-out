@@ -31,14 +31,22 @@ module.exports = (app) => {
     msg.say(['Cheers :beers:', 'Bye', 'Goodbye', 'Adios'])
   })
 
-  // slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
+  slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
+    // respond only 40% of the time
+    if (Math.random() < 0.4) {
+      msg.say([':wave:', ':pray:', ':raised_hands:'])
+    }
+  })
+
+  // slapp.message('()', ['direct_mention', 'direct_message'], (msg) => {
   //   // respond only 40% of the time
   //   if (Math.random() < 0.4) {
   //     msg.say([':wave:', ':pray:', ':raised_hands:'])
   //   }
   // })
 
-  slapp.message('play',(msg, text, match1) => {
+
+  slapp.message('play',(msg, text) => {
     let myMsg = {
       text: 'Would you like to play a game?',
       attachments: [
