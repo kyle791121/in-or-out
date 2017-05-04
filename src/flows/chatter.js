@@ -79,30 +79,29 @@ module.exports = (app) => {
       ]
     };
 
-    msg.say(myMsg).route('handlePlay');
+    msg.say(myMsg)//.route('handlePlay');
 
-    // }).route('handlePlay')
   })
 
-  slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
-    // if (msg.type !== 'action') {
-    //   msg.say('you must choose a button!').route('handleHi', state)
-    // }
-    msg.say('how are you')
-       .route('handleHi',{ what: match1 })
-  })
-
-  slapp.route('handleHi', (msg, state) => {
-    msg.say(':smile: ' + state.what)
-  })
-
-  slapp.route('handlePlay', (msg) => {
-    console.log(msg);
-    if (msg.type !== 'action') {
-      msg.say('you must choose a button!')
-         .route('handlePlay')
-    }
-  })
+  // slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
+  //   // if (msg.type !== 'action') {
+  //   //   msg.say('you must choose a button!').route('handleHi', state)
+  //   // }
+  //   msg.say('how are you')
+  //      .route('handleHi',{ what: match1 })
+  // })
+  //
+  // slapp.route('handleHi', (msg, state) => {
+  //   msg.say(':smile: ' + state.what)
+  // })
+  //
+  // slapp.route('handlePlay', (msg) => {
+  //
+  //   if (msg.type !== 'action') {
+  //     msg.say('you must choose a button!')
+  //        .route('handlePlay')
+  //   }
+  // })
 
 
 
@@ -121,36 +120,16 @@ module.exports = (app) => {
     };
 
     var req = http.get(options, function(response) {
-      // console.log('STATUS: ' + response.statusCode);
-      // console.log('HEADERS: ' + JSON.stringify(response.headers));
-
-      // console.log(`${response}`);
-      // Buffer the body entirely for processing as a whole.
-      // console.log(JSON.stringify(response[0]));
-
       let bodyChunks;
+
       response.on('data', function(chunk) {
-        // You can process streamed parts here...
-        // bodyChunks.push(chunk);
 
         bodyChunks = chunk;
+
       }).on('end', function() {
-        // console.log(`${bodyChunks}`);
 
         msg.respond(JSON.parse(bodyChunks));
-        // var body = Buffer.concat(bodyChunks);
-        // var jsonchunk = JSON.parse(bodyChunks);
-        // console.log('BODY: ' + body);
-        // bodyChunks.text = 'bodychunks';
-        // jsonchunk.text = 'jsonchunk';
-        // body.text = 'body';
 
-        // console.log(`${bodyChunks}`);
-        // console.log(`${jsonchunk}`);
-        // console.log(`${body}`);
-
-        // msg.say(bodyChunks);
-        // ...and/or process the entire body here.
       })
     });
 
