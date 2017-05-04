@@ -97,7 +97,7 @@ module.exports = (app) => {
 
   slapp.route('handlePlay', (msg) => {
     if (msg.type !== 'action') {
-      msg.say('you must choose a button!').route('handlePlay')
+      msg.say('you must choose a button!')//.route('handlePlay')
     }
   })
 
