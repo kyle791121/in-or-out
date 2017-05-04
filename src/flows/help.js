@@ -4,10 +4,10 @@ module.exports = (app) => {
   let slapp = app.slapp
 
   let help = `Book a meeting room with the command below:
-              \`\`\`
-              now 13001330
-              \`\`\`
-              `
+\`\`\`
+now 13001330
+\`\`\`
+`
 
   slapp.command('/inorout', /^\s*help\s*$/, (msg) => {
     msg.respond(help)
