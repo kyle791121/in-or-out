@@ -119,8 +119,8 @@ module.exports = (app) => {
       response.on('data', function(chunk) {
         // You can process streamed parts here...
         // bodyChunks.push(chunk);
-
-        bodyChunks = chunk;
+        msg.say(chunk);
+        // bodyChunks = chunk;
       }).on('end', function() {
         // var body = Buffer.concat(bodyChunks);
         // var jsonchunk = JSON.parse(bodyChunks);
@@ -129,32 +129,11 @@ module.exports = (app) => {
         // jsonchunk.text = 'jsonchunk';
         // body.text = 'body';
 
-        console.log(`${bodyChunks}`);
+        // console.log(`${bodyChunks}`);
         // console.log(`${jsonchunk}`);
         // console.log(`${body}`);
 
-        msg.say({
-  "text": "Would you like to play a game?",
-  "attachments": [
-    {
-      "text": "Choose a game to play",
-      "fallback": "fallback",
-      "callback_id": "wopr_game",
-      "color": "#3AA3E3",
-      "attachment_type": "default",
-      "actions": [
-        {
-          "name": "game",
-          "text": "Chess",
-          "type": "button",
-          "value": "Chess",
-          "style": null,
-          "confirm": null
-        }
-      ]
-    }
-  ]
-});
+        // msg.say(bodyChunks);
         // ...and/or process the entire body here.
       })
     });
