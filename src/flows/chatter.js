@@ -78,11 +78,11 @@ module.exports = (app) => {
         }
       ]
     };
-    console.log(`${myMsg}`);
-    msg.say(myMsg);
+
+    msg.say(myMsg).route('handlePlay');
 
     // }).route('handlePlay')
-  }).route('handlePlay')
+  })
 
   slapp.message('kylezzz (.*)',['direct_message'], (msg, text, match1) => {
     // if (msg.type !== 'action') {
@@ -132,7 +132,7 @@ module.exports = (app) => {
 
         bodyChunks = chunk;
       }).on('end', function() {
-        console.log(`${bodyChunks}`);
+        // console.log(`${bodyChunks}`);
 
         msg.respond(JSON.parse(bodyChunks));
         // var body = Buffer.concat(bodyChunks);
